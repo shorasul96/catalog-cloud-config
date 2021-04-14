@@ -1,0 +1,76 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+
+        - id: UAA-SERVICE
+          uri: lb://UAA-SERVICE
+          predicates:
+            - Path=/api/auth-service/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: UAA-SERVICE
+                fallbackuri: forward:/uaaServiceFallBack
+
+        - id: CATALOG-SERVICE
+          uri: lb://CATALOG-SERVICE
+          predicates:
+            - Path=/api/catalog-service/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: CATALOG-SERVICE
+                fallbackuri: forward:/catalogServiceFallBack
+
+        - id: PRODUCT-SERVICE
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/api/product-service/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: PRODUCT-SERVICE
+                fallbackuri: forward:/productServiceFallBack
+
+        - id: SWAGGER-SERVICE
+          uri: lb://SWAGGER-SERVICE
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+            - name: CircuitBreaker
+              args:
+                name: SWAGGER-SERVICE
+                fallbackuri: forward:/categoryServiceFallBack
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  endpoint:
+    health:
+      show-details: always
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
