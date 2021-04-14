@@ -9,3 +9,12 @@ eureka:
 swagger:
   config:
     refreshrate: 5000
+
+spring:
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:7700
+        username: admin
+        password: adminCatalog2021
