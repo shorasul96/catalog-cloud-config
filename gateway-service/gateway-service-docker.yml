@@ -70,20 +70,20 @@ spring:
 #                name: ADMIN-SERVICE
 #                fallbackuri: forward:/adminServiceFallBack
 
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
-
 eureka:
-  instance:
-    preferIpAddress: true
-    hostname: eureka-0
   client:
-    registerWithEureka: true
-    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
+
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    hostname: eureka-0
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
 
 management:
   endpoints:
