@@ -62,7 +62,7 @@ spring:
         - id: ADMIN-SERVICE
           uri: http://localhost:7700
           predicates:
-            - Path=/api/admin
+            - Path=/api/admin/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
