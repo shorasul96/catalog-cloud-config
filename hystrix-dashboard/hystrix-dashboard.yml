@@ -21,9 +21,6 @@ spring:
 #      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
 
 eureka:
-  instance:
-    preferIpAddress: true
-    hostname: registry-service
   client:
     registerWithEureka: true
     fetchRegistry: true
