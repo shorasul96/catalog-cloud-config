@@ -1,9 +1,12 @@
 spring:
+  config:
+    activate:
+      on-profile: docker
 
   eureka:
     client:
       serviceUrl:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://registry-service:8761/eureka/
 
   security:
     user:
@@ -19,5 +22,3 @@ management:
       exposure:
         include:
           - '*'
-
-
