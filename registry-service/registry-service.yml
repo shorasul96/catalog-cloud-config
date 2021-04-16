@@ -1,0 +1,47 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+  endpoint:
+    health:
+      show-details: always
+
+---
+
+spring:
+  profiles: default
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:7700
+        username: admin
+        password: adminCatalog2021
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: docker
+  boot:
+    admin:
+      client:
+        url:
+          - http://admin-service:7700
+        username: admin
+        password: adminCatalog2021

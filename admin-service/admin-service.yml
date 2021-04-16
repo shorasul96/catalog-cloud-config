@@ -1,0 +1,37 @@
+spring:
+  security:
+    user:
+      name: admin
+      password: adminCatalog2021
+
+server:
+  port: 7700
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+
+---
+
+spring:
+  profiles: default
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: docker
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
