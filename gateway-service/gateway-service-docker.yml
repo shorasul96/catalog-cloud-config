@@ -13,6 +13,9 @@ spring:
 
   cloud:
     gateway:
+      loadbalancer:
+        ribbon:
+          enabled: false
       routes:
 
         - id: uaa-service-docker
