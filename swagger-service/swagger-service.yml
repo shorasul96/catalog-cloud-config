@@ -4,12 +4,12 @@ server:
 eureka:
   instance:
     preferIpAddress: true
-    hostname: registry-service
+    hostname: localhost
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://registry-service:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 swagger:
   config:
@@ -20,6 +20,6 @@ spring:
     admin:
       client:
         url:
-          - http://admin-service:7700
+          - http://localhost:7700
         username: admin
         password: adminCatalog2021
