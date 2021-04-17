@@ -1,5 +1,5 @@
 server:
-  port: 8089
+  port: 0
 
 spring:
 
@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         url:
-          - http://localhost:7700
+          - http://admin-service:7700
         username: admin
         password: adminCatalog2021
 
@@ -26,19 +26,14 @@ spring:
 
 
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
-
-#eureka:
-#  instance:
-#    preferIpAddress: true
-#    hostname: eureka-0
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:

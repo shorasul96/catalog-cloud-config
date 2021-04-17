@@ -10,19 +10,19 @@ spring:
     admin:
       client:
         url:
-          - http://admin-service:7700
+          - http://localhost:7700
         username: admin
         password: adminCatalog2021
 
 eureka:
   instance:
     preferIpAddress: true
-    hostname: eureka-clustered
+    hostname: localhost
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka, http://${eureka.instance.hostname}:8762/eureka, http://${eureka.instance.hostname}:8763/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 
 management:

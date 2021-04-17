@@ -7,71 +7,68 @@ spring:
     admin:
       client:
         url:
-          - http://admin-service:7700
+          - http://localhost:7700
         username: admin
         password: adminCatalog2021
 
   cloud:
     gateway:
-      loadbalancer:
-        ribbon:
-          enabled: true
       routes:
 
-        - id: uaa-service-docker
-          uri: lb://uaa-service-docker
+        - id: uaa-service-dev
+          uri: lb://uaa-service-dev
           predicates:
             - Path=/api/auth-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: uaa-service-docker
+                name: uaa-service-dev
                 fallbackuri: forward:/uaaServiceFallBack
 
-        - id: catalog-service-docker
-          uri: lb://catalog-service-docker
+        - id: catalog-service-dev
+          uri: lb://catalog-service-dev
           predicates:
             - Path=/api/catalog-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: catalog-service-docker
+                name: catalog-service-dev
                 fallbackuri: forward:/catalogServiceFallBack
 
-        - id: product-service-docker
-          uri: lb://product-service-docker
+        - id: product-service-dev
+          uri: lb://product-service-dev
           predicates:
             - Path=/api/product-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: product-service-docker
+                name: product-service-dev
                 fallbackuri: forward:/productServiceFallBack
 
-        - id: swagger-service-docker
-          uri: lb://swagger-service-docker
+        - id: swagger-service-dev
+          uri: lb://swagger-service-dev
           predicates:
             - Path=/api/**
           filters:
             - StripPrefix=1
             - name: CircuitBreaker
               args:
-                name: swagger-service-docker
+                name: swagger-service-dev
                 fallbackuri: forward:/categoryServiceFallBack
+
 
 eureka:
   instance:
     preferIpAddress: true
-    hostname: eureka-clustered
+    hostname: localhost
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka, http://${eureka.instance.hostname}:8762/eureka, http://${eureka.instance.hostname}:8763/eureka
-
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:

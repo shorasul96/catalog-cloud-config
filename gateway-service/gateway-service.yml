@@ -7,12 +7,15 @@ spring:
     admin:
       client:
         url:
-          - http://localhost:7700
+          - http://admin-service:7700
         username: admin
         password: adminCatalog2021
 
   cloud:
     gateway:
+      loadbalancer:
+        ribbon:
+          enabled: true
       routes:
 
         - id: uaa-service
@@ -59,17 +62,15 @@ spring:
                 name: swagger-service
                 fallbackuri: forward:/categoryServiceFallBack
 
-
 eureka:
   instance:
     preferIpAddress: true
-    hostname: localhost
+    hostname: registry-service
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka, http://${eureka.instance.hostname}:8762/eureka, http://${eureka.instance.hostname}:8763/eureka
-
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:
