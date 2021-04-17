@@ -19,7 +19,7 @@ spring:
       routes:
 
         - id: uaa-service-docker
-          uri: http://uaa-service-docker:8089
+          uri: lb://uaa-service-docker
           predicates:
             - Path=/api/auth-service/**
           filters:
@@ -30,7 +30,7 @@ spring:
                 fallbackuri: forward:/uaaServiceFallBack
 
         - id: catalog-service-docker
-          uri: http://catalog-service-docker:8083
+          uri: lb://catalog-service-docker
           predicates:
             - Path=/api/catalog-service/**
           filters:
@@ -41,7 +41,7 @@ spring:
                 fallbackuri: forward:/catalogServiceFallBack
 
         - id: product-service-docker
-          uri: http://product-service-docker:8084
+          uri: lb://product-service-docker
           predicates:
             - Path=/api/product-service/**
           filters:
@@ -52,7 +52,7 @@ spring:
                 fallbackuri: forward:/productServiceFallBack
 
         - id: swagger-service-docker
-          uri: http://swagger-service-docker:9090
+          uri: lb://swagger-service-docker
           predicates:
             - Path=/api/**
           filters:
