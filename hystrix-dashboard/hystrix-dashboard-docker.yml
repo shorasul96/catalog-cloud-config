@@ -14,16 +14,10 @@ spring:
         username: admin
         password: adminCatalog2021
 
-#
-#eureka:
-#  client:
-#    serviceUrl:
-#      defaultZone: http://localhost:8762/eureka, http://localhost:8763/eureka, http://localhost:8764/eureka
-
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://discovery-server:8761/eureka/
+      defaultZone: http://registry-service:8761/eureka
 
 management:
   endpoints:
