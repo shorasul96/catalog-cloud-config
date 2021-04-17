@@ -1,0 +1,23 @@
+spring:
+
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+
+  security:
+    user:
+      name: admin
+      password: adminCatalog2021
+
+server:
+  port: 7700
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
+
+
