@@ -15,9 +15,15 @@ spring:
         password: adminCatalog2021
 
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: eureka-clustered
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://registry-service:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka, http://${eureka.instance.hostname}:8762/eureka, http://${eureka.instance.hostname}:8763/eureka
+
 
 management:
   endpoints:
