@@ -15,48 +15,48 @@ spring:
     gateway:
       routes:
 
-        - id: UAA-SERVICE
-          uri: lb://UAA-SERVICE
+        - id: UAA-SERVICE-DOCKER
+          uri: lb://UAA-SERVICE-DOCKER
           predicates:
             - Path=/api/auth-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: UAA-SERVICE
+                name: UAA-SERVICE-DOCKER
                 fallbackuri: forward:/uaaServiceFallBack
 
-        - id: CATALOG-SERVICE
-          uri: lb://CATALOG-SERVICE
+        - id: CATALOG-SERVICE-DOCKER
+          uri: lb://CATALOG-SERVICE-DOCKER
           predicates:
             - Path=/api/catalog-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: CATALOG-SERVICE
+                name: CATALOG-SERVICE-DOCKER
                 fallbackuri: forward:/catalogServiceFallBack
 
-        - id: PRODUCT-SERVICE
-          uri: lb://PRODUCT-SERVICE
+        - id: PRODUCT-SERVICE-DOCKER
+          uri: lb://PRODUCT-SERVICE-DOCKER
           predicates:
             - Path=/api/product-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: PRODUCT-SERVICE
+                name: PRODUCT-SERVICE-DOCKER
                 fallbackuri: forward:/productServiceFallBack
 
-        - id: SWAGGER-SERVICE
-          uri: lb://SWAGGER-SERVICE
+        - id: SWAGGER-SERVICE-DOCKER
+          uri: lb://SWAGGER-SERVICE-DOCKER
           predicates:
             - Path=/api/**
           filters:
             - StripPrefix=1
             - name: CircuitBreaker
               args:
-                name: SWAGGER-SERVICE
+                name: SWAGGER-SERVICE-DOCKER
                 fallbackuri: forward:/categoryServiceFallBack
 
 
