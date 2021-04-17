@@ -15,50 +15,49 @@ spring:
     gateway:
       routes:
 
-        - id: UAA-SERVICE-DOCKER
-          uri: lb://UAA-SERVICE-DOCKER
+        - id: uaa-service-docker
+          uri: lb://uaa-service-docker
           predicates:
             - Path=/api/auth-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: UAA-SERVICE-DOCKER
+                name: uaa-service-docker
                 fallbackuri: forward:/uaaServiceFallBack
 
-        - id: CATALOG-SERVICE-DOCKER
-          uri: lb://CATALOG-SERVICE-DOCKER
+        - id: catalog-service-docker
+          uri: lb://catalog-service-docker
           predicates:
             - Path=/api/catalog-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: CATALOG-SERVICE-DOCKER
+                name: catalog-service-docker
                 fallbackuri: forward:/catalogServiceFallBack
 
-        - id: PRODUCT-SERVICE-DOCKER
-          uri: lb://PRODUCT-SERVICE-DOCKER
+        - id: product-service-docker
+          uri: lb://product-service-docker
           predicates:
             - Path=/api/product-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                name: PRODUCT-SERVICE-DOCKER
+                name: product-service-docker
                 fallbackuri: forward:/productServiceFallBack
 
-        - id: SWAGGER-SERVICE-DOCKER
-          uri: lb://SWAGGER-SERVICE-DOCKER
+        - id: swagger-service-docker
+          uri: lb://swagger-service-docker
           predicates:
             - Path=/api/**
           filters:
             - StripPrefix=1
             - name: CircuitBreaker
               args:
-                name: SWAGGER-SERVICE-DOCKER
+                name: swagger-service-docker
                 fallbackuri: forward:/categoryServiceFallBack
-
 
 eureka:
   instance:
