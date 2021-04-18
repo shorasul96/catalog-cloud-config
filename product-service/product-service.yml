@@ -4,7 +4,7 @@ server:
 security:
   oauth2:
     resource:
-      link: http://uaa-service
+      link: http://uaa-service:8089
       token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
     client:
       client-id: akfa
