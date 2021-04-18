@@ -18,7 +18,7 @@ spring:
         - id: uaa-service-dev
           uri: lb://uaa-service-dev
           predicates:
-            - Path=/api/auth-service/**
+            - Path=/dev/auth-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
@@ -29,7 +29,7 @@ spring:
         - id: catalog-service-dev
           uri: lb://catalog-service-dev
           predicates:
-            - Path=/api/catalog-service/**
+            - Path=/dev/catalog-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
@@ -40,7 +40,7 @@ spring:
         - id: product-service-dev
           uri: lb://product-service-dev
           predicates:
-            - Path=/api/product-service/**
+            - Path=/dev/product-service/**
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
@@ -51,7 +51,7 @@ spring:
         - id: swagger-service-dev
           uri: lb://swagger-service-dev
           predicates:
-            - Path=/api/**
+            - Path=/dev/**
           filters:
             - StripPrefix=1
             - name: CircuitBreaker
