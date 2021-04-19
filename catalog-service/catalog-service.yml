@@ -31,7 +31,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://host.docker.internal:5432/catalog-service
+    url: jdbc:postgresql://vm.internal:5432/catalog-service
     username: postgres
     password: root
 
