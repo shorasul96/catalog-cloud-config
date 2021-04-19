@@ -15,7 +15,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://host.docker.internal:5432/uaa-service
     username: postgres
-    password: postgres
+    password: root
 
   jpa:
     database: postgresql
