@@ -13,7 +13,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql:// 10.7.5.96:5432/uaa-service
+    url: jdbc:postgresql://10.7.5.96:5432/uaa-service
     username: postgres
     password: root
 

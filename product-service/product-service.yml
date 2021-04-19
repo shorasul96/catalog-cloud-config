@@ -33,7 +33,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql:// 10.7.5.96:5432/product-service
+    url: jdbc:postgresql://10.7.5.96:5432/product-service
     username: postgres
     password: root
 
