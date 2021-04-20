@@ -48,3 +48,8 @@ management:
 sms:
   api:
     url: http://10.7.4.205:8572/api/v1/message/send
+
+swagger:
+  endpoint:
+    host: localhost:8080
+    url: /dev/product-service
