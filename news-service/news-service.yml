@@ -1,0 +1,8 @@
+server:
+  port: 8085
+
+spring:
+  profiles:
+    include: main-service-common
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/news-service
