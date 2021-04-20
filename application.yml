@@ -1,4 +1,18 @@
 ---
+server:
+  shutdown: graceful
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+---
 spring:
   profiles:
     active: main-service-common
@@ -11,8 +25,15 @@ spring:
         password: adminCatalog2021
 
   datasource:
+    driver-class-name: org.postgresql.Driver
     username: postgres
     password: root
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
 
 security:
   oauth2:
@@ -46,8 +67,16 @@ spring:
         username: admin
         password: adminCatalog2021
   datasource:
+    driver-class-name: org.postgresql.Driver
     username: postgres
     password: root
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
 
 security:
   oauth2:

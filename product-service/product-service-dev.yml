@@ -1,40 +1,11 @@
 server:
   port: 8084
 
-security:
-  oauth2:
-    resource:
-      link: http://localhost:8080/dev/auth-service
-      token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
-    client:
-      client-id: akfa
-      client-secret: akfaGroup1234
-
-eureka:
-  instance:
-    preferIpAddress: true
-    hostname: localhost
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka
-
-
 spring:
-
-  boot:
-    admin:
-      client:
-        url:
-          - http://localhost:7700
-        username: admin
-        password: adminCatalog2021
-
+  profiles:
+    include: main-service-common-dev
   datasource:
     url: jdbc:postgresql://localhost:5432/product-service
-    username: postgres
-    password: root
 
 refresh:
   scope:
