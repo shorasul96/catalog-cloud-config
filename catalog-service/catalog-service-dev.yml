@@ -4,7 +4,7 @@ server:
 security:
   oauth2:
     resource:
-      link: http://localhost:8080/api/auth-service
+      link: http://localhost:8080/dev/auth-service
       token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
     client:
       client-id: akfa
