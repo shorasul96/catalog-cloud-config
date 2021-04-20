@@ -48,6 +48,17 @@ spring:
                 name: product-service-dev
                 fallbackuri: forward:/productServiceFallBack
 
+        - id: news-service-dev
+          uri: lb://news-service-dev
+          predicates:
+            - Path=/dev/news-service/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: news-service-dev
+                fallbackuri: forward:/newsServiceFallBack
+
         - id: swagger-service-dev
           uri: lb://swagger-service-dev
           predicates:
@@ -57,7 +68,7 @@ spring:
             - name: CircuitBreaker
               args:
                 name: swagger-service-dev
-                fallbackuri: forward:/categoryServiceFallBack
+                fallbackuri: forward:/swaggerServiceFallBack
 
 
 eureka:
