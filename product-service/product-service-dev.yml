@@ -39,3 +39,7 @@ spring:
 refresh:
   scope:
     version: 0.0.2
+
+feign:
+  ribbon:
+    catalog: catalog-service-dev
