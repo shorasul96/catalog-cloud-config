@@ -44,3 +44,7 @@ management:
   endpoint:
     health:
       show-details: always
+
+sms:
+  api:
+    url: http://10.7.4.205:8572/api/v1/message/send

@@ -44,3 +44,7 @@ management:
   endpoint:
     health:
       show-details: always
+
+sms:
+  api:
+    url: http://195.158.4.138:8572/api/v1/message/send
