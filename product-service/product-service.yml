@@ -43,3 +43,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+refresh:
+  scope:
+    version: 0.0.1
