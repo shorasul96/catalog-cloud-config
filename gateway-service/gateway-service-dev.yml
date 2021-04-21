@@ -59,6 +59,17 @@ spring:
                 name: news-service-dev
                 fallbackuri: forward:/newsServiceFallBack
 
+        - id: image-service-dev
+          uri: lb://image-service-dev
+          predicates:
+            - Path=/dev/image-service/**
+          filters:
+            - StripPrefix=2
+            - name: CircuitBreaker
+              args:
+                name: image-service-dev
+                fallbackuri: forward:/imageServiceFallBack
+
         - id: swagger-service-dev
           uri: lb://swagger-service-dev
           predicates:
