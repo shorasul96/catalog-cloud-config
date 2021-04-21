@@ -3,7 +3,8 @@ server:
 
 
 spring:
-  profiles:
-    include: main-service-common-dev
   datasource:
     url: jdbc:postgresql://localhost:5432/news-service
+  profiles:
+    include: main-service-common-dev
+
