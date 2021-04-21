@@ -1,11 +1,9 @@
 server:
   port: 8085
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/news-service
 
----
+
 spring:
   profiles:
     include: main-service-common-dev
-
+  datasource:
+    url: jdbc:postgresql://localhost:5432/news-service
