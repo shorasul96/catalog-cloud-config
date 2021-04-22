@@ -7,18 +7,13 @@ spring:
     include: main-service-common-dev
   datasource:
     url: jdbc:postgresql://localhost:5432/image-service
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 4MB
+      max-request-size: 48MB
 
-## MULTIPART (MultipartProperties)
-# Enable multipart uploads
-spring.servlet.multipart.enabled=true
-# Threshold after which files are written to disk.
-spring.servlet.multipart.file-size-threshold=2KB
-# Max file size.
-spring.servlet.multipart.max-file-size=4MB
-# Max Request Size
-spring.servlet.multipart.max-request-size=48MB
-
-## File Storage Properties
-# Please change this to the path where you want the uploaded files to be stored.
-file.upload-dir=C:\\Users\\user\\Desktop\\catalog-files
+file:
+  upload-dir: C:\\Users\\user\\Desktop\\catalog-files
 
