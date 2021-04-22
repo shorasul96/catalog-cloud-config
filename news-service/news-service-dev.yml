@@ -3,7 +3,41 @@ server:
 
 
 spring:
-  profiles:
-    include: main-service-common-dev
+  boot:
+    admin:
+      client:
+        url:
+          - http://admin-service:7700
+        username: admin
+        password: adminCatalog2021
+
   datasource:
+    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/news-service
+    username: postgres
+    password: root
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+security:
+  oauth2:
+    resource:
+      link: http://uaa-service:8089
+      token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
+    client:
+      client-id: akfa
+      client-secret: akfaGroup1234
+
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka

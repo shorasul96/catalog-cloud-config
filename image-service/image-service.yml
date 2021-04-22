@@ -2,16 +2,51 @@ server:
   port: 8090
 
 spring:
-  profiles:
-    include: main-service-common
-  datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/image-service
+  boot:
+    admin:
+      client:
+        url:
+          - http://admin-service:7700
+        username: admin
+        password: adminCatalog2021
+
   servlet:
     multipart:
       enabled: true
       file-size-threshold: 2KB
       max-file-size: 4MB
       max-request-size: 48MB
+
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/image-service
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+security:
+  oauth2:
+    resource:
+      link: http://uaa-service:8089
+      token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
+    client:
+      client-id: akfa
+      client-secret: akfaGroup1234
+
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 file:
   upload-dir: /home/storage
