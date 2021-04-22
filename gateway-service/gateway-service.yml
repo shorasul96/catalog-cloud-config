@@ -13,9 +13,9 @@ spring:
 
   cloud:
     gateway:
-#      loadbalancer:
-#        ribbon:
-#          enabled: true
+      loadbalancer:
+        ribbon:
+          enabled: false
       routes:
 
         - id: uaa-service
