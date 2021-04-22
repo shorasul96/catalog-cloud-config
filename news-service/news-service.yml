@@ -44,4 +44,4 @@ feign:
   ribbon:
     image:
       name: image-service
-      url: http://localhost:8080/api/image-service
+      url: http://image-service:8090

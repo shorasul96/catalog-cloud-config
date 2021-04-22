@@ -55,10 +55,10 @@ feign:
   ribbon:
     news:
       name: news-service
-      url: http://localhost:8080/api/news-service
+      url: http://news-service:8090
     product:
       name: product-service
-      url: http://localhost:8080/api/product-service
+      url: http://product-service:8084
     catalog:
       name: catalog-service
-      url: http://localhost:8080/api/catalog-service
+      url: http://catalog-service:8083

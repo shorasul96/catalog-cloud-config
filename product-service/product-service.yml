@@ -51,7 +51,7 @@ feign:
   ribbon:
     image:
       name: image-service
-      url: http://localhost:8080/api/image-service
+      url: http://image-service:8090
     catalog:
       name: catalog-service
-      url: http://localhost:8080/api/catalog-service
+      url: http://catalog-service:8083

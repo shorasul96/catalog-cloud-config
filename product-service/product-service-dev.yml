@@ -49,7 +49,7 @@ feign:
   ribbon:
     image:
       name: image-service-dev
-      url: http://localhost:8080/dev/image-service
+      url: http://image-service-dev:8090
     catalog:
       name: catalog-service-dev
-      url: http://localhost:8080/dev/catalog-service
+      url: http://catalog-service-dev:8083
