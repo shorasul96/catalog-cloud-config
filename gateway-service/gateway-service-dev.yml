@@ -13,7 +13,10 @@ spring:
 
   cloud:
     gateway:
-#      connect-timeout: 6000
+      loadbalancer:
+        ribbon:
+          enabled: false
+      #      connect-timeout: 6000
 #        response-timeout: 6s
       routes:
 
