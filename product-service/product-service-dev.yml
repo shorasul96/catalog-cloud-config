@@ -47,7 +47,9 @@ refresh:
 
 feign:
   ribbon:
-    image: image-service-dev
+    image:
+      name: image-service-dev
       url: http://localhost:8080/dev/image-service
-    catalog: catalog-service-dev
+    catalog:
+      name: catalog-service-dev
       url: http://localhost:8080/dev/catalog-service

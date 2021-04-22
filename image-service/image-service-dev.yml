@@ -57,9 +57,12 @@ file:
 
 feign:
   ribbon:
-    news: news-service-dev
+    news:
+      name: news-service-dev
       url: http://localhost:8080/dev/news-service
-    catalog: catalog-service-dev
+    catalog:
+      name: catalog-service-dev
       url: http://localhost:8080/dev/catalog-service
-    product: product-service-dev
+    product:
+      name: product-service-dev
       url: http://localhost:8080/dev/product-service

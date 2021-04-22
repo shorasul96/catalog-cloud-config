@@ -42,4 +42,6 @@ eureka:
 
 feign:
   ribbon:
-    image: image-service
+    image:
+      name: image-service
+      url: http://localhost:8080/api/image-service

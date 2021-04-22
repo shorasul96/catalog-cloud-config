@@ -44,4 +44,6 @@ eureka:
 
 feign:
   ribbon:
-    image: image-service-dev
+    image:
+      name: image-service-dev
+      url: http://localhost:8080/dev/image-service
