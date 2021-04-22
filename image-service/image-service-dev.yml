@@ -11,6 +11,13 @@ spring:
         username: admin
         password: adminCatalog2021
 
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 4MB
+      max-request-size: 48MB
+
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/image-service
@@ -23,13 +30,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-  servlet:
-    multipart:
-      enabled: true
-      file-size-threshold: 2KB
-      max-file-size: 4MB
-      max-request-size: 48MB
 
 
 
