@@ -72,10 +72,10 @@ spring:
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
-            args:
-              pattern: /delay/{timeout}
-              name: image-service-dev
-              fallbackuri: forward:/imageServiceFallBack
+              args:
+                pattern: /delay/{timeout}
+                name: image-service-dev
+                fallbackuri: forward:/imageServiceFallBack
           metadata:
             response-timeout: 4000
             connect-timeout: 200
