@@ -69,16 +69,15 @@ spring:
           uri: lb://image-service-dev
           predicates:
             - Path=/dev/image-service/**
-          timeout:
-            - connect-timeout: 20
-            - response-timeout: 12s
           filters:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                pattern: /delay/{timeout}
+                pattern: /route/delay/{timeout}
                 name: image-service-dev
                 fallbackuri: forward:/imageServiceFallBack
+          metadata:
+            response-timeout: 10000
 
         - id: swagger-service-dev
           uri: lb://swagger-service-dev
