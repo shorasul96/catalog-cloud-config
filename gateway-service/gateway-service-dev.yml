@@ -14,8 +14,8 @@ spring:
   cloud:
     gateway:
       httpclient:
-        connect-timeout: 2000
-        response-timeout: 7s
+        connect-timeout: 60000
+        response-timeout: 10s
       loadbalancer:
         ribbon:
           enabled: false
@@ -77,8 +77,8 @@ spring:
                 name: image-service-dev
                 fallbackuri: forward:/imageServiceFallBack
           metadata:
-            response-timeout: 6000
-            connect-timeout: 2000
+            response-timeout: 10000
+            connect-timeout: 6000
 
 
         - id: swagger-service-dev
