@@ -120,3 +120,5 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 4000
+
+testme: hello
