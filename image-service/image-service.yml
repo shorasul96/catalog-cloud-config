@@ -51,3 +51,8 @@ eureka:
 file:
   upload-dir: /home/storage
 
+feign:
+  ribbon:
+    news: news-service
+    product: product-service
+    catalog: catalog-service

@@ -55,3 +55,8 @@ eureka:
 file:
   upload-dir: C:\\Users\\user\\Desktop\\catalog-files
 
+feign:
+  ribbon:
+    news: news-service-dev
+    catalog: catalog-service-dev
+    product: product-service-dev
