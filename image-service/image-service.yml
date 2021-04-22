@@ -14,5 +14,5 @@ spring:
       max-request-size: 48MB
 
 file:
-  upload-dir: C:\\Users\\user\\Desktop\\catalog-files
+  upload-dir: /home/storage
 
