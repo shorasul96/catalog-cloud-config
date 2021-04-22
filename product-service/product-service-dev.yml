@@ -47,4 +47,5 @@ refresh:
 
 feign:
   ribbon:
+    image: image-service-dev
     catalog: catalog-service-dev

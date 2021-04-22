@@ -49,4 +49,5 @@ refresh:
 
 feign:
   ribbon:
+    image: image-service
     catalog: catalog-service

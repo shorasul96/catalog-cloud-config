@@ -39,3 +39,7 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka
+
+feign:
+  ribbon:
+    image: image-service
