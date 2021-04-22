@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         url:
-          - http://admin-service:7700
+          - http://localhost:7700
         username: admin
         password: adminCatalog2021
 
@@ -26,7 +26,7 @@ spring:
 security:
   oauth2:
     resource:
-      link: http://uaa-service:8089
+      link: http://localhost:8089
       token-info-uri: ${security.oauth2.resource.link}/oauth/check_token
     client:
       client-id: akfa
@@ -35,7 +35,7 @@ security:
 eureka:
   instance:
     preferIpAddress: true
-    hostname: registry-service
+    hostname: localhost
   client:
     registerWithEureka: true
     fetchRegistry: true
