@@ -34,7 +34,7 @@ security:
 
 eureka:
   instance:
-    preferIpAddress: true
+#    preferIpAddress: true
     hostname: localhost
   client:
     registerWithEureka: true
