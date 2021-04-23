@@ -12,10 +12,11 @@ spring:
         password: adminCatalog2021
 
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
     gateway:
-      loadbalancer:
-        ribbon:
-          enabled: false
       routes:
 
         - id: uaa-service
