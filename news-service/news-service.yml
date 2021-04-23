@@ -14,7 +14,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://postgres:5432/news-service
     username: postgres
-    password: root
+    password: postgres
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
