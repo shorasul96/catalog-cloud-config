@@ -16,12 +16,6 @@ spring:
 
   cloud:
     gateway:
-      httpclient:
-        connect-timeout: 1000
-        response-timeout: 10s
-      loadbalancer:
-        ribbon:
-          enabled: false
       routes:
 
         - id: uaa-service-dev
@@ -76,11 +70,9 @@ spring:
             - StripPrefix=2
             - name: CircuitBreaker
               args:
-                pattern: /route/delay/{timeout}
                 name: image-service-dev
                 fallbackuri: forward:/imageServiceFallBack
-          metadata:
-            response-timeout: 10000
+
 
         - id: swagger-service-dev
           uri: lb://swagger-service-dev
@@ -92,6 +84,13 @@ spring:
               args:
                 name: swagger-service-dev
                 fallbackuri: forward:/swaggerServiceFallBack
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
 
 management:
   endpoints:

@@ -16,9 +16,6 @@ spring:
 
   cloud:
     gateway:
-      loadbalancer:
-        ribbon:
-          enabled: false
       routes:
 
         - id: uaa-service
@@ -86,6 +83,12 @@ spring:
               args:
                 name: swagger-service
                 fallbackuri: forward:/swaggerServiceFallBack
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://registry-service:8761/eureka/
+    healthcheck:
+      enabled: true
 
 management:
   endpoints:
