@@ -23,6 +23,7 @@ spring:
           predicates:
             - Path=/dev/auth-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -34,6 +35,7 @@ spring:
           predicates:
             - Path=/dev/catalog-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -45,6 +47,7 @@ spring:
           predicates:
             - Path=/dev/product-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -56,6 +59,7 @@ spring:
           predicates:
             - Path=/dev/news-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -67,6 +71,7 @@ spring:
           predicates:
             - Path=/dev/image-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -79,6 +84,7 @@ spring:
           predicates:
             - Path=/dev/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=1
             - name: CircuitBreaker
               args:
@@ -108,6 +114,6 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 4000
+            timeoutInMilliseconds: 8000
 
 testme: hello
