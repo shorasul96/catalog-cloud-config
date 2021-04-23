@@ -13,7 +13,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/catalog-service
     username: postgres
-    password: postgres
+    password: root
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
