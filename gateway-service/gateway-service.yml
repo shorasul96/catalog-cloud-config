@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         url:
-          - http://localhost:7700
+          - http://admin-service:7700
         username: admin
         password: adminCatalog2021
 
