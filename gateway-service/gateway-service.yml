@@ -28,7 +28,6 @@ spring:
           predicates:
             - Path=/api/auth-service/**
           filters:
-            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -40,7 +39,6 @@ spring:
           predicates:
             - Path=/api/catalog-service/**
           filters:
-            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -52,7 +50,6 @@ spring:
           predicates:
             - Path=/api/product-service/**
           filters:
-            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -64,7 +61,6 @@ spring:
           predicates:
             - Path=/api/news-service/**
           filters:
-            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -87,7 +83,6 @@ spring:
           predicates:
             - Path=/api/**
           filters:
-            - Hystrix=fallbackcmd
             - StripPrefix=1
             - name: CircuitBreaker
               args:
