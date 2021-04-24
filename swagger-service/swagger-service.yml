@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+#    preferIpAddress: true
     hostname: registry-service
   client:
     registerWithEureka: true

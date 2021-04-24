@@ -3,6 +3,9 @@ server:
 
 spring:
 
+  zipkin:
+    baseUrl: http://tracing-server:9411
+
   boot:
     admin:
       client:
@@ -24,6 +27,7 @@ spring:
           predicates:
             - Path=/api/auth-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -35,6 +39,7 @@ spring:
           predicates:
             - Path=/api/catalog-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -46,6 +51,7 @@ spring:
           predicates:
             - Path=/api/product-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -57,6 +63,7 @@ spring:
           predicates:
             - Path=/api/news-service/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=2
             - name: CircuitBreaker
               args:
@@ -79,21 +86,18 @@ spring:
           predicates:
             - Path=/api/**
           filters:
+            - Hystrix=fallbackcmd
             - StripPrefix=1
             - name: CircuitBreaker
               args:
                 name: swagger-service
                 fallbackuri: forward:/swaggerServiceFallBack
-
 eureka:
-  instance:
-    preferIpAddress: true
-    hostname: registry-service
   client:
-    registerWithEureka: true
-    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+      defaultZone: http://registry-service:8761/eureka/
+    healthcheck:
+      enabled: true
 
 management:
   endpoints:
@@ -111,4 +115,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 4000
+            timeoutInMilliseconds: 10000
