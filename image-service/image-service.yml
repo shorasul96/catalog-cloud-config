@@ -52,6 +52,13 @@ file:
   upload-dir: /home/storage
 
 feign:
+
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 10000
+
   ribbon:
     news:
       name: news-service
