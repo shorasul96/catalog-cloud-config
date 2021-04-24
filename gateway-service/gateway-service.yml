@@ -12,7 +12,6 @@ spring:
         password: adminCatalog2021
 
   cloud:
-
     loadbalancer:
       ribbon:
         enabled: false
@@ -89,11 +88,14 @@ spring:
                 name: swagger-service
                 fallbackuri: forward:/swaggerServiceFallBack
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://registry-service:8761/eureka/
-    healthcheck:
-      enabled: true
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:
