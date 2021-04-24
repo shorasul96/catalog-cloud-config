@@ -41,6 +41,12 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 feign:
+
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 10000
   ribbon:
     image:
       name: image-service
