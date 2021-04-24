@@ -12,10 +12,9 @@ spring:
         password: adminCatalog2021
 
   cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
-
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
     gateway:
       httpclient:
         connect-timeout: 1000
