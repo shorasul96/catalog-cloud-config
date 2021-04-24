@@ -7,7 +7,7 @@ spring:
     admin:
       client:
         url:
-          - http://admin-service:7700
+          - http://localhost:7700
         username: admin
         password: adminCatalog2021
 
@@ -22,13 +22,6 @@ spring:
         response-timeout: 10s
 
       routes:
-        - id: admin-service
-          uri: lb://admin-service
-          predicates:
-            - Path=/admin-service/**
-          filters:
-            - StripPrefix=1
-
         - id: uaa-service
           uri: lb://uaa-service
           predicates:
