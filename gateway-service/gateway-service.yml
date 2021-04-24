@@ -3,9 +3,6 @@ server:
 
 spring:
 
-  zipkin:
-    baseUrl: http://tracing-server:9411
-
   boot:
     admin:
       client:
