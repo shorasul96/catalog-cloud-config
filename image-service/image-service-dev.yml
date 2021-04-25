@@ -53,8 +53,8 @@ eureka:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 file:
-  upload-dir: C:\\Users\\user\\Desktop\\catalog-files
-#  upload-dir: C:\\Users\\PC\\Desktop\\catalog-files
+#  upload-dir: C:\\Users\\user\\Desktop\\catalog-files
+  upload-dir: C:\\Users\\PC\\Desktop\\catalog-files
 
 feign:
 
