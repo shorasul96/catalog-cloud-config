@@ -2,7 +2,8 @@ server:
   port: 8080
 
 spring:
-
+  zipkin:
+    baseUrl: http://tracing-server:9411
   boot:
     admin:
       client:
