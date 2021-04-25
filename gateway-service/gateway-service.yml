@@ -16,9 +16,6 @@ spring:
         enabled: false
 
     gateway:
-      httpclient:
-        connect-timeout: 1000
-        response-timeout: 10s
       routes:
         - id: uaa-service
           uri: lb://uaa-service
@@ -93,7 +90,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://registry-service:8761/eureka
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:
@@ -111,4 +108,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 6000
+            timeoutInMilliseconds: 4000
