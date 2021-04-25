@@ -20,9 +20,7 @@ spring:
       httpclient:
         connect-timeout: 1000
         response-timeout: 10s
-
       routes:
-
         - id: uaa-service-dev
           uri: lb://uaa-service-dev
           predicates:
@@ -119,4 +117,4 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000
+            timeoutInMilliseconds: 6000
