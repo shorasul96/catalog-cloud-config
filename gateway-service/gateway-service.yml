@@ -2,7 +2,17 @@ server:
   port: 8080
 
 spring:
+  boot:
+    admin:
+      client:
+        url:
+          - http://localhost:7700
+        username: admin
+        password: adminCatalog2021
   cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
     gateway:
       httpclient:
         connect-timeout: 1000
