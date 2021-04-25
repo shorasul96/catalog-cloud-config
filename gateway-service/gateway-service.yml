@@ -2,20 +2,7 @@ server:
   port: 8080
 
 spring:
-#  zipkin:
-#    baseUrl: http://tracing-server:9411
-#  boot:
-#    admin:
-#      client:
-#        url:
-#          - http://admin-service:7700
-#        username: admin
-#        password: adminCatalog2021
-
   cloud:
-#    loadbalancer:
-#      ribbon:
-#        enabled: false
     gateway:
       httpclient:
         connect-timeout: 1000
