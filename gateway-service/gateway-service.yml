@@ -79,6 +79,7 @@ spring:
                 fallbackuri: forward:/swaggerServiceFallBack
 eureka:
   instance:
+    preferIpAddress: true
     hostname: registry-service
   client:
     registerWithEureka: true
