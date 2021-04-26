@@ -85,13 +85,13 @@ spring:
 
 eureka:
   instance:
-    preferIpAddress: true
+#    preferIpAddress: true
     hostname: registry-service
   client:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+      defaultZone: http://registry-service:8761/eureka
 
 hystrix:
   command:
