@@ -14,7 +14,6 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false
-
     gateway:
       routes:
         - id: uaa-service
@@ -83,32 +82,15 @@ spring:
                 name: swagger-service
                 fallbackuri: forward:/swaggerServiceFallBack
 
-  zipkin:
-    baseUrl: http://host.docker.internal:9411
 eureka:
+  instance:
+    preferIpAddress: true
+    hostname: registry-service
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
-      defaultZone: http://registry-service:8761/eureka/
-
-#eureka:
-#  instance:
-#    preferIpAddress: true
-#    hostname: registry-service
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://${eureka.instance.hostname}:8761/eureka
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - "*"
-  endpoint:
-    health:
-      show-details: always
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 hystrix:
   command:
@@ -117,3 +99,10 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 4000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
