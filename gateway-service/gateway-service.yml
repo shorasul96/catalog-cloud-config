@@ -9,7 +9,8 @@ spring:
           - http://admin-service:7700
         username: admin
         password: adminCatalog2021
-
+  zipkin:
+    baseUrl: http://tracing-server:9411
   cloud:
     loadbalancer:
       ribbon:
