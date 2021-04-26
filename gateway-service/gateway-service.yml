@@ -84,7 +84,7 @@ spring:
                 fallbackuri: forward:/swaggerServiceFallBack
 
   zipkin:
-    baseUrl: http://tracing-server:9411
+    baseUrl: http://host.docker.internal:9411
 eureka:
   client:
     serviceUrl:
