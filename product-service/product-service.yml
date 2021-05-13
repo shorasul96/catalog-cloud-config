@@ -12,7 +12,7 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://postgres:5433/product-service
+    url: jdbc:postgresql://host.docker.internal:5432/product-service
     username: postgres
     password: postgres
 
