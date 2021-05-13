@@ -17,11 +17,11 @@ spring:
       max-file-size: 4MB
       max-request-size: 48MB
 
-  datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/image-service
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: postgres
+#  datasource:
+#    url: jdbc:postgresql://host.docker.internal:5432/image-service
+#    driver-class-name: org.postgresql.Driver
+#    username: postgres
+#    password: postgres
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect

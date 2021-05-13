@@ -10,11 +10,11 @@ spring:
         username: admin
         password: adminCatalog2021
 
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://host.docker.internal:5432/news-service
-    username: postgres
-    password: postgres
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://host.docker.internal:5432/news-service
+#    username: postgres
+#    password: postgres
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
