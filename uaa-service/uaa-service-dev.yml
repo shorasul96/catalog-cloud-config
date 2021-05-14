@@ -57,9 +57,9 @@ management:
       show-details: always
 
 sms:
-  in-world:
+  in-server:
     url: http://10.7.4.205:8572/api/v1/message/send
-    out-world:
+    out-server:
       url: http://195.158.4.138:8572/api/v1/message/send
 
 
