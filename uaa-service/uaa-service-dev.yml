@@ -24,6 +24,17 @@ spring:
     hibernate:
       ddl-auto: update
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+rabbitmq:
+  exchange: catalog_mq.direct
+  routing: catalog_mq.routing_key
+  queue: catalog_mq.queue
+
 
 eureka:
   instance:
