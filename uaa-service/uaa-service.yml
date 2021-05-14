@@ -47,7 +47,7 @@ management:
 
 sms:
   api:
-    url: http://195.158.4.138:8572/api/v1/message/send
+    url: http://10.7.4.205:8572/api/v1/message/send
 
 swagger:
   endpoint:
