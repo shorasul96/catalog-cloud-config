@@ -91,15 +91,15 @@ spring:
                 fallbackuri: forward:/swaggerServiceFallBack
 
 
-#eureka:
-#  instance:
-#    preferIpAddress: true
-#    hostname: localhost
-#  client:
-#    registerWithEureka: true
-#    fetchRegistry: true
-#    serviceUrl:
-#      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+eureka:
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
 
 management:
   endpoints:
